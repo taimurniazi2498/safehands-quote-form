@@ -1,14 +1,27 @@
-# SafeHands
+# SafeHands Quote Form
 
-Starter for the SafeHands Insurance Quote SPA. It is a Vite + React app with React Router, ESLint and Prettier. The Home page shows the SafeHands logo and a welcome banner.
+Task 3 of the SafeHands Insurance Quote SPA: an accessible quote request form with live validation , built with React and Vite.
+
+## Features
+
+- Fields: full name, email, phone and insurance type (Health, Auto, Home, Life)
+- HTML5 input types (`text`, `email`, `tel`) with `required` attributes
+- Live validation: errors update while typing and when a field loses focus
+- On submit, the first invalid field receives focus
+- Valid data is stored in components state and success message is shown
+- Responsive layout, checked on a mobile viewport (iPhone SE)
+
+## Accessibility
+
+- Every input has a `<label>` linked with `htmlfor`
+- Invalid fields use `aria-invalid` and `aria-describedby` pointing to their error message
+- Error messages use `role="alert"` so screen readers announce them
+- The success message uses `role="status"`
+- The whole form can be used with the key board only (Tab, Shift+Tab, Enter), with a clear focus outline
 
 ## Tech
 
-- Vite
-- React
-- React Router
-- ESLint
-- Prettier
+React, Vite, React Router, validator.js (email check), CSS Modules
 
 ## Run locally
 
@@ -17,41 +30,8 @@ npm install
 npm run dev
 ```
 
+Open http://localhost:5173/quote
 
-Then open the link shown in the terminal (for example http://localhost:5173/). The Home page loads at `/`.
+## What was done and why
 
-## Scripts
-
-- `npm run dev` starts the dev server
-- `npm run build` creates a production build
-- `npm run lint` checks the code with ESLint
-- `npm run format` formats the code with Prettier
-
-## Project structure
-
-```
-src/
-  assets/       images (logo.svg)
-  components/   reusable components (Home)
-  pages/        route pages (HomePage)
-  App.jsx       routes
-  main.jsx      entry point with BrowserRouter
-  ```
-  
-  ## Task 2: Navigation and Page Routing
-
-  A responsive navigation bar with three pages (Home, About, Quote), built with React Router.
-
-  ### Features
-
-  - NavBar components built with  `<nav>` and `<ul>`
-  - Client-side routing with React Router (no full page reloads)
-  - Routes: `/` (Home), `/about` (About), `/quote` (Quote)
-  - Active link highlighting using `NavLink`
-  - Below 786x, the links collapse into a CSS-only hamburger menu
-
-  ### Files added
-
-  - `src/components/NavBar.jsx` and `NavBar.module.css`: navigation bar and its styles
-  - `src/pages/About.jsx` and `Quote.jsx`: placeholder pages
-  - `src/App.jsx`: route definitions
+I used controlled inputs so the form stae is always in React. Each field has its own validation function, so error messages stay specific and easy to change. ARIA attributes and focus management make the form useable for keyboard and screen reader users. 

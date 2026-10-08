@@ -5,16 +5,19 @@ import styles from './QuoteForm.module.css';
 const validate = {
   name: (v) => {
     if (!v.trim()) return 'Full name is required.';
-    if (v.trim().length < 2) 'Name must be at least 2 characters.';
+    if (v.trim().length < 2) return 'Name must be at least 2 characters.';
     return '';
   },
   email: (v) => {
-    if (!v.trim()) return 'Email is required.'
+    if (!v.trim()) return 'Email is required.';
     return validator.isEmail(v.trim()) ? '' : 'Enter a valid email, like name@example.com.';
   },
   phone: (v) => {
     if (!v.trim()) return 'Phone number is required.';
-    return validator.isMobilePhone(v.trim(), 'any') ? '' : 'Enter a valid phone number.';
+    const digits = v.replace(/[\s\-()]/, '');
+    return /^\+?\d{10,15}$/.test(digits)
+    ? ''
+    : 'Enter a valid phone number (10 to 15 digits).';
   },
   insuranceType: (v) => (v ? '' : 'Please choose an insurance type.'),
 };
@@ -104,7 +107,8 @@ function QuoteForm() {
           <option value="home">Home</option>
           <option value="life">Life</option>
         </select>
-        <p id="insuranceType-error" className={styles.error} role="alert">{errors.insuranceType}</p>
+        <p id="insuranceType-error" className={styles.error} role="alert">{errors.insuranceType}
+        </p>
       </div>
 
       <button type="submit" className={styles.button}>Get my quote</button>
