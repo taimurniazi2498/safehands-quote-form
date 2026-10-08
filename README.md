@@ -34,4 +34,4 @@ Open http://localhost:5173/quote
 
 ## What was done and why
 
-I used controlled inputs so the form stae is always in React. Each field has its own validation function, so error messages stay specific and easy to change. ARIA attributes and focus management make the form useable for keyboard and screen reader users. 
+I used controlled inputs so the form state is always in React. Each field has its own validation function, so error messages stay specific and easy to change. ARIA attributes and focus management make the form usable for keyboard and screen reader users. 
