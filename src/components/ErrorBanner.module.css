@@ -1,0 +1,20 @@
+.banner {
+  padding: 1rem;
+  border: 1px solid #c0392b;
+  border-radius: 8px;
+  background: #fdecea;
+  color: #7f1d1d;
+}
+
+.banner {
+  margin-top: 0;
+}
+
+.banner button {
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: #c0392b;
+  color: #fff;
+  cursor: pointer;
+}
