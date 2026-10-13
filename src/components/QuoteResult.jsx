@@ -9,7 +9,7 @@ const money = new Intl.NumberFormat('en-US', {
 });
 
 function estimatePremium(quote) {
-  const base = { car: 900, health: 1200, home: 700, life: 600};
+  const base = { auto: 900, health: 1200, home: 700, life: 600};
   const type = String(quote.insuranceType ?? '').toLowerCase();
   return (base[type] ?? 1000) + (String(quote.name ?? '').length + String(quote.email ?? '').length) * 7;
 }
@@ -39,7 +39,7 @@ export default function QuoteResult({ status, quote, error, onRetry }) {
           </dl>
           <ul>
             <li>Accidental damage and theft</li>
-            <li>24/7 claims suppor</li>
+            <li>24/7 claims support</li>
             <li>Free policy changes within 14 days</li>
           </ul>
           <small>Quote ID: {quote.quoteId}</small>
